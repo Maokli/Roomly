@@ -1,0 +1,31 @@
+<nav>
+  <div class="logo">
+    <a href="">
+      <img src="assets/logo.svg" alt="roomly logo" srcset="">
+      <h2>Roomly</h2>
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="">Matches</a></li>
+    <li><a href="">Lists</a></li>
+    <li><a href="">Messages</a></li>
+  </ul>
+    <ul class="join-links">
+      <li><a href=""><i class="far fa-envelope"></i></a></li>
+      <li><a href=""><i class="far fa-bell"></i></a></li>
+      <li>
+        <div class="user">
+          <img src="assets/user.jpg" alt="">
+          <div class="dropdown" dropdown>
+            <a class="dropdown-toggle" *ngIf="accountService.currentUser$ | async"
+                dropdownToggle>{{(accountService.currentUser$ | async).userName}}</a>
+            <div class="dropdown-menu" *dropdownMenu>
+              <a class="dropdown-item">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a  class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+</nav>

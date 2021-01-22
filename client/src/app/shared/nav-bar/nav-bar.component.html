@@ -1,0 +1,2 @@
+<app-home-nav *ngIf="(accountService.currentUser$ | async) === null"></app-home-nav>
+<app-app-nav *ngIf="accountService.currentUser$ | async"></app-app-nav>

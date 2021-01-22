@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all .5s;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+nav{
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+a:hover{
+  text-decoration: none;
+}
