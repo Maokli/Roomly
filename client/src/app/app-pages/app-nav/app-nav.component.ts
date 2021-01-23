@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { AccountService } from 'src/app/services/account.service';
 
@@ -10,12 +11,13 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class AppNavComponent implements OnInit {
 
-  constructor(public accountService: AccountService) { }
+  constructor(public accountService: AccountService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
   logout(){
     this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
 }

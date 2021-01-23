@@ -27,6 +27,21 @@ nav {
       }
     }
   }
+    
+  .nav-links{
+    .find-roommates{
+      color: white !important;
+      font-weight: 500 !important;
+      background-color: #4EB094;
+      &:hover{
+        background-color: #419d83;
+        color: white;
+      }
+      border-radius: 7px;
+      padding: 1em 1em;
+    }
+  }
+    
     .join-links{
       margin: .6em;
       margin-top: 1em;

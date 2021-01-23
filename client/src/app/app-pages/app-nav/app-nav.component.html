@@ -1,14 +1,14 @@
 <nav>
   <div class="logo">
-    <a href="">
+    <a routerLink='/'>
       <img src="assets/logo.svg" alt="roomly logo" srcset="">
       <h2>Roomly</h2>
     </a>
   </div>
   <ul class="nav-links">
-    <li><a href="">Matches</a></li>
-    <li><a href="">Lists</a></li>
-    <li><a href="">Messages</a></li>
+    <li><a class="find-roommates" routerLink='/find-roommates'>Find Roommates</a></li>
+    <li><a routerLink='/matches'>Matches</a></li>
+    <li><a routerLink='/messages'>Messages</a></li>
   </ul>
     <ul class="join-links">
       <li><a href=""><i class="far fa-envelope"></i></a></li>
@@ -17,8 +17,10 @@
         <div class="user">
           <img src="assets/user.jpg" alt="">
           <div class="dropdown" dropdown>
-            <a class="dropdown-toggle" *ngIf="accountService.currentUser$ | async"
-                dropdownToggle>{{(accountService.currentUser$ | async).userName}}</a>
+            <a class="dropdown-toggle" 
+                *ngIf="(accountService.currentUser$ | async) as user"
+                dropdownToggle>{{user.userName | titlecase}}
+            </a>
             <div class="dropdown-menu" *dropdownMenu>
               <a class="dropdown-item">Settings</a>
               <div class="dropdown-divider"></div>

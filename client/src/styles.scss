@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr';
 * {
   margin: 0;
   padding: 0;
@@ -18,4 +19,9 @@ nav{
 
 a:hover{
   text-decoration: none;
+}
+
+//fixing toastr bug
+#toast-container > div {
+  opacity:1;
 }
