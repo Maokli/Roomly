@@ -104,4 +104,10 @@
 
 }
 
+//Mobile View
 
+@media screen and (max-width: 768px){
+  #register {
+    width: 90vw !important;
+  }
+}

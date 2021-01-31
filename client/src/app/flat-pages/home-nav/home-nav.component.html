@@ -5,12 +5,17 @@
       <h2>Roomly</h2>
     </a>
   </div>
+  <div class="burger" (click)="navSlide()">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
   <div class="links">
     <ul class="nav-links">
-      <li><a href="">Home</a></li>
-      <li><a href="">About Us</a></li>
-      <li><a href="">Reviews</a></li>
-      <li><a href="">Support</a></li>
+      <li><a [routerLinkActiveOptions]="{ exact: true }" routerLink="" routerLinkActive="selected">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="selected">About</a></li>
+      <li><a routerLink="/reviews" routerLinkActive="selected">Reviews</a></li>
+      <li><a routerLink="/contact" routerLinkActive="selected">Support</a></li>
     </ul>
     <ul class="join-links">
       <li><a class="login" href="/login">Login</a></li>

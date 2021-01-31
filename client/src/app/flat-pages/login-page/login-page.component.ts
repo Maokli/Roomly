@@ -19,6 +19,7 @@ export class LoginPageComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.cleanInputForm();
   }
 
 
@@ -28,6 +29,29 @@ export class LoginPageComponent implements OnInit {
     }, error => {
       console.log(error);
       this.toastr.error(error.error);
+      this.showValidationErrors(error.error);
+    })
+  }
+
+  showValidationErrors(error: string){
+    const usenameFormGroup = document.querySelector('.username');
+    const passwordFormGroup = document.querySelector('.password');
+    const err = error.toLowerCase();
+    if(err.includes('username'))
+      usenameFormGroup.querySelector('p').style.visibility = 'visible';
+    if(err.includes('password'))
+      passwordFormGroup.querySelector('p').style.visibility = 'visible';
+  }
+
+  cleanInputForm(){
+    const usenameFormGroup = document.querySelector('.username');
+    const passwordFormGroup = document.querySelector('.password');
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+      input.addEventListener('change', () => {
+        usenameFormGroup.querySelector('p').style.visibility = 'hidden';
+        passwordFormGroup.querySelector('p').style.visibility = 'hidden';
+      })
     })
   }
 }

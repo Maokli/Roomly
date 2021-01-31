@@ -6,9 +6,16 @@
   box-sizing: border-box;
   transition: all .5s;
 }
-
+html{
+  height: 100%;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 body{
   overflow-x: hidden;
+  height: 100%;
 }
 
 nav{
@@ -23,5 +30,5 @@ a:hover{
 
 //fixing toastr bug
 #toast-container > div {
-  opacity:1;
+  box-shadow: none;
 }

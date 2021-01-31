@@ -8,13 +8,15 @@
       <h2>Login</h2>
       <hr>
     <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
-      <div class="form-group">
+      <div class="form-group username">
         <input class="input" type="text" [(ngModel)]="model.username" name="username" id="username" required="">
         <label for="username">Username</label>
+        <p>Invalid Username</p>
       </div>
-      <div class="form-group">
+      <div class="form-group password">
         <input class="input" type="password" [(ngModel)]="model.password" name="password" id="password" required="">
         <label for="password">Password</label>
+        <p>Invalid Password</p>
       </div>
         <button type="submit">Login</button>
     </form>
