@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
 
+.mobile-nav {
+  display: none;
+}
+.mobile-nav-2 {
+  display: none;
+}
+.desktop-nav {
+  display: flex;
+}
 nav {
   display: flex;
   text-align: center;
@@ -97,5 +106,88 @@ nav {
         }
       }
     
+  }
+}
+
+//Mobile Styles
+
+@media screen and (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+    position: sticky;
+    top: 100%;
+  }
+  .mobile-nav-2 {
+    display: flex;
+    position: sticky;
+    top: 0;
+  }
+  .desktop-nav {
+    display: none;
+  }
+  .dropdown{
+    margin-top: .5em;
+    .dropdown-menu{
+      border-top: none;
+      margin-top: .7em;
+      border-radius: 0 0 5px 5px;
+      a{
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+    .dropdown-toggle{
+      margin-left: .5em;
+      color: white !important;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px){
+  nav {
+    background-color: #367590;
+    padding: 0 2em;
+    padding-top: 1em;
+    padding-bottom: .5em;
+    z-index: 9999;
+    justify-content: space-around;
+    .logo{
+      margin-right: auto;
+      margin-bottom: .5em;
+      a {
+        h2 {
+          color: white;
+          margin: 0;
+          font-size: 2em;
+        }
+      }
+      img{
+        display: none;
+      }
+    }
+    
+      .nav-links{
+        flex-direction: row;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        li {
+          text-align: center;
+          font-size: 1.7em;
+          margin: 0.5em 1em;
+          a {
+            color: white !important;
+            font-weight: 500 !important;
+            &:hover{
+              background-color: #419d83;
+              color: white;
+            }
+            padding: 1em 1em;
+          }
+        }
+      }
   }
 }

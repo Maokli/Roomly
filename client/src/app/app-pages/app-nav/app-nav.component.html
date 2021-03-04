@@ -1,4 +1,4 @@
-<nav>
+<nav class="desktop-nav">
   <div class="logo">
     <a routerLink='/'>
       <img src="assets/logo.svg" alt="roomly logo" srcset="">
@@ -14,11 +14,11 @@
       <li><a href=""><i class="far fa-envelope"></i></a></li>
       <li><a href=""><i class="far fa-bell"></i></a></li>
       <li>
-        <div class="user">
-          <img src="assets/user.jpg" alt="">
+        <div class="user" 
+        *ngIf="(accountService.currentUser$ | async) as user">
+          <img src="{{user.photoUrl}}" alt="">
           <div class="dropdown" dropdown>
             <a class="dropdown-toggle" 
-                *ngIf="(accountService.currentUser$ | async) as user"
                 dropdownToggle>{{user.userName | titlecase}}
             </a>
             <div class="dropdown-menu" *dropdownMenu>
@@ -30,4 +30,43 @@
         </div>
       </li>
     </ul>
+</nav>
+
+<!-- Mobile Navbar Markup -->
+<nav class="mobile-nav-2">
+  <div class="logo">
+    <a routerLink='/'>
+      <img src="assets/logo.svg" alt="roomly logo" srcset="">
+      <h2>Roomly</h2>
+    </a>
+  </div>
+    <ul class="join-links">
+      <li><a href=""><i class="far fa-envelope"></i></a></li>
+      <li><a href=""><i class="far fa-bell"></i></a></li>
+      <li>
+        <div class="user" 
+        *ngIf="(accountService.currentUser$ | async) as user">
+          <img src="{{user.photoUrl}}" alt="">
+          <div class="dropdown" dropdown>
+            <a class="dropdown-toggle" 
+                dropdownToggle>{{user.userName | titlecase}}
+            </a>
+            <div class="dropdown-menu" *dropdownMenu>
+              <a class="dropdown-item">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a  class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+</nav>
+<nav class="mobile-nav">
+  <ul class="nav-links">
+    <li><a routerLink='/find-roommates'>
+      <i class="fas fa-search"></i>
+    </a></li>
+    <li><a routerLink='/matches'><i class="far fa-star"></i></a></li>
+    <li><a routerLink='/messages'><i class="far fa-envelope"></i></a></li>
+  </ul>
 </nav>

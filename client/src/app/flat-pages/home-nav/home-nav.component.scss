@@ -179,35 +179,36 @@ nav {
       }
     }
   }
-}
 
-//Utility
-.nav-active {
-  transform: translateX(0%) !important;
-}
-@keyframes navLinkFade {
-  from {
+
+  //Utility
+  .nav-active {
+    transform: translateX(0%) !important;
+  }
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(20%);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+
+  //Burger Animation
+  .toggle .line1{
+    transform: rotate(-45deg) translate(-3px,4px);
+  }
+  .toggle .line2{
     opacity: 0;
-    transform: translateX(20%);
   }
-  to{
-    opacity: 1;
-    transform: translateX(0%);
+  .toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
   }
-}
 
-//Burger Animation
-.toggle .line1{
-  transform: rotate(-45deg) translate(-3px,4px);
-}
-.toggle .line2{
-  opacity: 0;
-}
-.toggle .line3{
-  transform: rotate(45deg) translate(-5px,-6px);
-}
-
-.selected {
-  background-color: rgb(240, 82, 82);
-  color: white;
+  .selected {
+    background-color: rgb(240, 82, 82);
+    color: white;
+  }
 }
