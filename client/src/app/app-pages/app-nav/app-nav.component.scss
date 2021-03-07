@@ -10,6 +10,7 @@
   display: flex;
 }
 nav {
+  z-index: 9999;
   display: flex;
   text-align: center;
   padding: 0 8em;
@@ -115,7 +116,7 @@ nav {
   .mobile-nav {
     display: flex;
     position: sticky;
-    top: 100%;
+    bottom: 0;
   }
   .mobile-nav-2 {
     display: flex;

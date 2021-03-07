@@ -1,0 +1,26 @@
+<div class="card" *ngIf="member">
+  <div class="img-wrapper">
+    <div class="overlay"></div>
+    <img src="{{member.photoUrl}}" alt="{{member.userName}}">
+    <p>${{member.budget}}<span> /mo</span></p>
+  </div>
+  <div class="content">
+    <div class="heading">
+      <h4>{{member.userName | titlecase}}, {{member.age}}</h4>
+      <p>looking for roommates in <a>{{member.country}}, {{member.city}}</a></p>
+    </div>
+    <div class="description">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet enim sagittis, varius nulla at, malesuada quam. Mauris tristique semper venenatis. In commodo turpis.</p>
+    </div>
+    <div class="interests">
+      <p>Interests :</p>
+      <div class="interests-wrapper">
+        <div class="interest">programming</div>
+        <div class="interest">gaming</div>
+        <div class="interest">cooking</div>
+        <div class="interest">calisthenics</div>
+        <div class="interest">calisthenics</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+*{
+  font-family: 'Roboto', sans-serif;
+}
+.card {
+  width: 25em;
+  height: 32em;
+  background-color: #F3F3F3;
+  margin-top: 1em;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  .img-wrapper {
+    position: relative;
+    height: 55%;
+    width: 100%;
+    .overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: .6;
+      background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 18%, rgba(139,139,139,.1) 100%);
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    p {
+      position: absolute;
+      bottom: 0em;
+      margin-bottom: .5em;
+      left: .5em;
+      font-weight:500;
+      font-size: 2em;
+      color: white;
+      span {
+        font-weight: normal;
+        font-size: .7em;
+      }
+    }
+  }
+  .content {
+    margin: 1em;
+    .heading {
+      h4{
+        margin-bottom: 0;
+      }
+      p {
+        color: #363636;
+        font-weight: lighter;
+        margin-top: 0em;
+        margin-bottom: 0;
+        a {
+          color: #367590;
+          text-decoration: underline;
+        }
+      }
+    }
+    .description {
+      margin-top: .5em;
+      font-size: .9em;
+      color: black;
+      p {
+        margin-bottom: .5em;
+      }
+    }
+    .interests {
+      p {
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: .5em;
+      }
+      .interests-wrapper{
+        display: flex;
+        overflow-x: scroll;
+        width: 100%;
+        &::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+          background-color: transparent;
+          margin-top: .2em;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: #367590;
+        }
+        .interest {
+          user-select: none;
+          padding: .1em .5em;
+          border-radius: 5px;
+          margin: 0 .5em;
+          margin-bottom: .3em;
+          color: white;
+          background-color: #367590;
+        }
+        
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 90vw;
+    height: auto;
+  }
+}
