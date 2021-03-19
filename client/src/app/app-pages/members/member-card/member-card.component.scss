@@ -4,7 +4,7 @@
 }
 .card {
   width: 25em;
-  height: 32em;
+  height: 37.5em;
   background-color: #F3F3F3;
   margin-top: 1em;
   border: none;
@@ -20,10 +20,44 @@
       width: 100%;
       opacity: .6;
       background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 18%, rgba(139,139,139,.1) 100%);
+      transition: .2s ease-in;
     }
     img {
       width: 100%;
       height: 100%;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 0;
+      position: absolute;
+      bottom: 50%;
+      top: 40%;
+      width: 100%;
+      transform: scale(.3);
+      opacity: 0;
+      transition: opacity .5s ease-in-out, transform .4s ease-in;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        a{
+          text-decoration: none;
+          text-align: center;
+          font-size: 2.5em;
+          color: white;
+          width: 2.5em;
+          border-radius: 10px;
+          background-color: #007bff;
+          &:hover {
+            background-color: #0065d1;
+          }
+          i {
+            font-family: "Font Awesome 5 Free";
+          }
+        }
+      }
     }
     p {
       position: absolute;
@@ -37,6 +71,20 @@
         font-weight: normal;
         font-size: .7em;
       }
+    }
+
+    //Buttons Animation
+    &:hover .buttons {
+      transform: scale(1);
+      opacity: 1;
+    }
+    &:hover .overlay {
+      background: black;
+      opacity: .7;
+    }
+    &:hover p {
+      opacity: .7;
+      transition: opacity .5s;
     }
   }
   .content {

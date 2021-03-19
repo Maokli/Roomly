@@ -22,7 +22,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path:'find-roommates', component:MemberListComponent},
-      {path:'user/:id', component:MemberDetailComponent},
+      {path:'user/:username', component:MemberDetailComponent},
       {path:'matches', component:MatchesComponent},
       {path:'messages', component:MessagesComponent},
     ]
