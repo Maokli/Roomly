@@ -54,8 +54,8 @@
           margin: 2vw 0;
           width: 100%;
           p{
-            font-size: .8em;
-            margin-top: .3em;
+            font-size: .8vw;
+            margin-top: .3vw;
             color: rgb(240, 82, 82);
             visibility: hidden;
           }
@@ -117,6 +117,33 @@
 @media screen and (max-width: 768px){
   #login {
     width: 90vw !important;
+    .login-form{
+      h2{
+        font-size: 2em !important;
+      }
+      form{
+        .form-group {
+          p{
+            font-size: .8em !important;
+            margin-top: .3em !important;
+          }
+          label{
+            font-size:16px !important;
+          }
+          .input{ 
+            font-size:16px !important;
+            &:focus ~ label,
+            &:valid ~ label{
+              top:-12px !important;
+              font-size:12px !important;
+            }
+          }
+        }
+        button{
+          font-size: 1em !important;
+        }
+      }
+    }
   }
 }
 
