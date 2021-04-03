@@ -20,11 +20,8 @@
     <div class="interests">
       <p>Interests :</p>
       <div class="interests-wrapper">
-        <div class="interest">programming</div>
-        <div class="interest">gaming</div>
-        <div class="interest">cooking</div>
-        <div class="interest">calisthenics</div>
-        <div class="interest">calisthenics</div>
+        <div class="interest"
+        *ngFor="let interest of member.interestsArray">{{interest}}</div>
       </div>
     </div>
   </div>

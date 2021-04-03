@@ -1,1 +1,94 @@
-<h1 *ngIf="member">{{member.userName}}</h1>
+<ng-container *ngIf="member">
+  <div class="wrapper">
+    <div class="heading">
+      <div class="image-wrapper">
+        <img src="{{member.photoUrl}}" alt="{{member.userName}}">
+      </div>
+      <div class="text-wrapper">
+        <h1>{{member.userName | titlecase}}</h1>
+        <p class="location">Looking for Roommates in <span>{{member.country}}, {{member.city}}</span></p>
+        <p class="introduction">{{member.description}}</p>
+        <a href=""><i class="far fa-comment-dots"></i> Chat with me</a>
+      </div>
+      <div class="like-button">
+        <button><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+    <section class="body">
+      <div class="general-info">
+        <h2>General Information</h2>
+      </div>
+      <div class="form">
+        <div class="form-group">
+          <p class="question">Name</p>
+          <p class="answer">{{member.firstName | titlecase}} {{member.lastName | titlecase}}</p>
+        </div>
+        <hr>
+        <div class="form-group">
+          <p class="question">Age</p>
+          <p class="answer">{{member.age}} years old</p>
+        </div>
+        <hr>
+        <div class="form-group">
+          <p class="question">Gender</p>
+          <p class="answer">{{member.gender | titlecase}}</p>
+        </div>
+        <hr>
+        <div class="form-group">
+          <p class="question">Monthly Budget</p>
+          <p class="answer">${{member.budget}}</p>
+        </div>
+      </div>
+    </section>
+    <section class="interests">
+      <h2>Interests</h2>
+      <div class="interests-wrapper">
+        <p class="interest" 
+        *ngFor="let interest of member.interestsArray">{{interest}}</p>
+      </div>
+    </section>
+    <section class="living-info">
+      <h2>Living Information</h2>
+      <p>The information in this form are just a basic must know for roommates,
+         for further details message the user and have a little chat together</p>
+         <div class="form">
+          <div class="form-group">
+            <p class="question">Do I drink ?</p>
+            <p class="answer">{{member.doesDrink | answer}}</p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <p class="question">Do I smoke ?</p>
+            <p class="answer">{{member.doesSmoke | answer}}</p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <p class="question">Do I have pets to bring with me ?</p>
+            <p class="answer">{{member.hasPets | answer}}</p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <p class="question">Have I ever lived with someone before ?</p>
+            <p class="answer">{{member.hasLivedWithSomeoneBefore | answer}}</p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <p class="question">Do I have any allergies ?</p>
+            <p class="answer">{{member.hasAllergies | answer}}</p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <p class="question">Am I moving in alone ?</p>
+            <p class="answer">{{member.isMovingAlone | answer}}</p>
+          </div>
+        </div>
+    </section>
+    <section class="terms">
+      <h2>Terms and Conditions</h2>
+      <p>These terms are set by the user, they clarify the living conditions that
+         he/she is expecting, agreement upon them is necessary </p>
+      <p class="term" *ngFor="let term of member.termsAndConditions">
+        * {{term.termContent | titlecase}}</p>
+      </section>
+  </div>
+</ng-container>
