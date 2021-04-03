@@ -14,8 +14,8 @@ nav {
   display: flex;
   text-align: center;
   padding: 0 8em;
-  padding-top: 1em;
-  padding-bottom: .5em;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
   width: 100vw;
   background-color: white;
   justify-content: space-between;
@@ -25,30 +25,40 @@ nav {
       align-content: center;
         h2 {
         font-family: 'Grand Hotel', cursive;
-        font-size: 1.5em;
+        font-size: 2vw;
         margin: 0;
-        margin-top: .3em;
+        margin-top: .3vw;
         color: #367590;
         align-self: flex-start;
       }
       img{
-        width: 2.5em;
-        height: 2.5em;
+        width: 2.5vw;
+        height: 2.5vw;
       }
     }
   }
     
   .nav-links{
+    width: 31vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     .find-roommates{
       color: white !important;
       font-weight: 500 !important;
       background-color: #4EB094;
+      font-size: 1.3vw;
       &:hover{
         background-color: #419d83;
-        color: white;
+        color: rgb(65, 45, 45);
       }
       border-radius: 7px;
       padding: 1em 1em;
+    }
+    li {
+      a {
+        font-size: 1.3vw;
+      }
     }
   }
     
@@ -57,7 +67,7 @@ nav {
       margin-top: 1em;
       li a i{
         color: #33aeac;
-        font-size: 1.3em;
+        font-size: 1.3vw;
         &:hover {
           font-weight: bolder;
         }
@@ -67,8 +77,8 @@ nav {
         transform: translateY(-.5em);
         img{
           border-radius: 50%;
-          height: 2.5em;
-          width: 2.6em;
+          height: 2.5vw;
+          width: 2.6vw;
         }
         .dropdown{
           margin-top: .5em;
@@ -84,6 +94,7 @@ nav {
           }
           .dropdown-toggle{
             margin-left: .5em;
+            font-size: 1vw;
             &:hover{
               cursor: pointer;
             }
@@ -112,12 +123,19 @@ nav {
 
 //Mobile Styles
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1281px) {
   .mobile-nav {
     display: flex;
     position: fixed;
     top: 90vh;
     height: 10vh;
+    .nav-links {
+      li {
+        a{
+          font-size: 1em;
+        }
+      }
+    }
   }
   .mobile-nav-2 {
     display: flex;
@@ -126,6 +144,12 @@ nav {
   }
   .desktop-nav {
     display: none;
+  }
+  .user {
+    img{
+      height: 2.5em !important;
+      width: 2.6em !important;
+    }
   }
   .dropdown{
     margin-top: .5em;
@@ -141,6 +165,7 @@ nav {
     }
     .dropdown-toggle{
       margin-left: .5em;
+      font-size: 1em !important;
       color: white !important;
       &:hover{
         cursor: pointer;
@@ -148,12 +173,13 @@ nav {
     }
   }
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1281px){
   nav {
     background-color: #367590;
     padding: 0 2vw;
     padding-top: 1em;
     padding-bottom: .5em;
+    margin-top: 0;
     z-index: 9999;
     justify-content: space-around;
     .logo{
@@ -168,6 +194,16 @@ nav {
       }
       img{
         display: none;
+      }
+    }
+    .join-links{
+      margin: .6em;
+      li a i{
+        color: #33aeac;
+        font-size: 1.3em;
+        &:hover {
+          font-weight: bolder;
+        }
       }
     }
     
