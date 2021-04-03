@@ -115,8 +115,9 @@ nav {
 @media screen and (max-width: 768px) {
   .mobile-nav {
     display: flex;
-    position: sticky;
-    bottom: 0;
+    position: fixed;
+    top: 90vh;
+    height: 10vh;
   }
   .mobile-nav-2 {
     display: flex;
@@ -150,7 +151,7 @@ nav {
 @media screen and (max-width: 768px){
   nav {
     background-color: #367590;
-    padding: 0 2em;
+    padding: 0 2vw;
     padding-top: 1em;
     padding-bottom: .5em;
     z-index: 9999;
