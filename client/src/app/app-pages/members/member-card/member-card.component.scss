@@ -1,8 +1,8 @@
 .card {
-  width: 25em;
-  height: 37.5em;
+  width: 30vw;
+  height: 43vw;
   background-color: #F3F3F3;
-  margin-top: 1em;
+  margin-top: 1vw;
   border: none;
   border-radius: 20px;
   overflow: hidden;
@@ -41,9 +41,9 @@
         a{
           text-decoration: none;
           text-align: center;
-          font-size: 2.5em;
+          font-size: 2.5vw;
           color: white;
-          width: 2.5em;
+          width: 7.5vw;
           border-radius: 10px;
           background-color: #007bff;
           &:hover {
@@ -61,7 +61,7 @@
       margin-bottom: .5em;
       left: .5em;
       font-weight:500;
-      font-size: 2em;
+      font-size: 2.5vw;
       color: white;
       span {
         font-weight: normal;
@@ -88,12 +88,14 @@
     .heading {
       h4{
         margin-bottom: 0;
+        font-size: 2vw;
       }
       p {
         color: #363636;
         font-weight: lighter;
         margin-top: 0em;
         margin-bottom: 0;
+        font-size: 1.3vw;
         a {
           color: #367590;
           text-decoration: underline;
@@ -101,11 +103,11 @@
       }
     }
     .description {
-      margin-top: .5em;
-      font-size: .9em;
+      margin-top: 1vw;
+      font-size: 1vw;
       color: black;
       p {
-        margin-bottom: .5em;
+        margin-bottom: 1vw;
       }
     }
     .interests {
@@ -113,6 +115,7 @@
         font-weight: 500;
         margin-top: 0;
         margin-bottom: .5em;
+        font-size: 1.3vw;
       }
       .interests-wrapper{
         display: flex;
@@ -122,7 +125,7 @@
           width: 5px;
           height: 5px;
           background-color: transparent;
-          margin-top: .2em;
+          margin-top: .2vw;
         }
         &::-webkit-scrollbar-thumb {
           background: #367590;
@@ -131,9 +134,10 @@
           user-select: none;
           padding: .1em .5em;
           border-radius: 5px;
-          margin: 0 .5em;
-          margin-bottom: .3em;
+          margin: 0 .5vw;
+          margin-bottom: .3vw;
           color: white;
+          font-size: 1.2vw;
           background-color: #367590;
         }
         
@@ -146,5 +150,78 @@
   .card {
     width: 90vw;
     height: auto;
+    .img-wrapper {
+      .buttons {
+        li {
+          a{
+            font-size: 2.5em !important; 
+            width: 2.5em !important;
+          }
+        }
+      }
+      p {
+        font-size: 2em !important;
+      }
+    }
+    .content {
+      margin: 1em !important;
+      .heading {
+        h4{
+          margin-bottom: 0;
+          font-size: 1.5em;
+        }
+        p {
+          color: #363636;
+          font-weight: lighter;
+          margin-top: 0em;
+          margin-bottom: 0;
+          font-size: 1em;
+          a {
+            color: #367590;
+            text-decoration: underline;
+          }
+        }
+      }
+      .description {
+        margin-top: .5em;
+        font-size: .9em;
+        color: black;
+        p {
+          margin-bottom: .5em;
+        }
+      }
+      .interests {
+        p {
+          font-weight: 500;
+          margin-top: 0;
+          margin-bottom: .5em;
+          font-size: 1.2em;
+        }
+        .interests-wrapper{
+          display: flex;
+          overflow-x: scroll;
+          width: 100%;
+          &::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+            background-color: transparent;
+            margin-top: .2em;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: #367590;
+          }
+          .interest {
+            user-select: none;
+            padding: .1em .5em;
+            border-radius: 5px;
+            margin: 0 .5em;
+            margin-bottom: .3em;
+            font-size: 1em;
+            color: white;
+            background-color: #367590;
+          }
+        }
+      }
+    }
   }
 }
