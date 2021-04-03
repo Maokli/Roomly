@@ -4,7 +4,7 @@ nav {
   z-index: 99999;
   display: flex;
   text-align: center;
-  padding: 0 8em;
+  padding: 0 4vw;
   padding-top: 1em;
   padding-bottom: .5em;
   width: 100vw;
@@ -12,18 +12,17 @@ nav {
   .logo {
     a{
       display: flex;
-      align-items: center;
+      align-content: center;
         h2 {
         font-family: 'Grand Hotel', cursive;
-        font-size: 1.5em;
+        font-size: 2.5vw;
         margin: 0;
-        margin-top: .3em;
+        margin-top: .3vw;
         color: #367590;
         align-self: flex-start;
       }
       img{
-        width: 2.5em;
-        height: 2.5em;
+        width: 3.5vw;
       }
     }
   }
@@ -45,11 +44,12 @@ nav {
       display: flex;
       list-style-type: none;
       li{
-        margin: 0 1em;
+        margin: 0 1vw;
         justify-content: space-evenly;
         a{
           color: rgb(48, 48, 48);
-          font-weight: 450;
+          font-weight: 400;
+          font-size: 1.5vw;
         }
         a:hover{
           color: #33aeac;
@@ -130,9 +130,10 @@ nav {
           opacity: 0;
           margin-bottom: 1.5em;
           text-align: center;
-          font-size: 1.7em;
+          font-size: 1em !important;
           a {
             color: white;
+            font-size: 1.7em !important;
           }
           &:first-of-type{
             margin-top: 1.5em;
@@ -140,13 +141,21 @@ nav {
         }
       }
       .nav-links{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
         li {
-          margin-left: 0 !important;
+          width: 100%;
+          &:hover {
+            background-color: rgb(240, 82, 82);
+            color: white !important;
+            outline: none;
+            border: none;
+          }
           a {
-            padding: .5em 100%;
-            padding-left: 40%;
             &:hover {
-              background-color: rgb(240, 82, 82);
               color: white;
             }
           }
@@ -162,6 +171,7 @@ nav {
             border: 2px solid rgb(240, 82, 82);
             border-radius: 10px;
             padding: .5em 2em;
+            font-size: 1.5em !important;
             &.login{
               padding: .5em 2.6em;
               background-color: rgb(240, 82, 82);
@@ -210,6 +220,8 @@ nav {
 
   .selected {
     background-color: rgb(240, 82, 82);
-    color: white;
+    color: white !important;
+    outline: none;
+    border: none;
   }
 }

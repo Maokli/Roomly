@@ -19,21 +19,21 @@ nav {
   width: 100vw;
   background-color: white;
   justify-content: space-between;
+  align-items: center;
   .logo {
     a{
       display: flex;
       align-content: center;
         h2 {
         font-family: 'Grand Hotel', cursive;
-        font-size: 2vw;
+        font-size: 2.5vw;
         margin: 0;
         margin-top: .3vw;
         color: #367590;
         align-self: flex-start;
       }
       img{
-        width: 2.5vw;
-        height: 2.5vw;
+        width: 3.5vw;
       }
     }
   }
@@ -63,22 +63,27 @@ nav {
   }
     
     .join-links{
-      margin: .6em;
-      margin-top: 1em;
-      li a i{
-        color: #33aeac;
-        font-size: 1.3vw;
-        &:hover {
-          font-weight: bolder;
-        }
+      display: flex;
+      align-items: center;
+      li {
+          a{ 
+              i{
+              color: #33aeac;
+              font-size: 2vw;
+              margin: 0 .5vw;
+              &:hover {
+                font-weight: bolder;
+              }
+            }
+          }
       }
       .user{
         display: flex;
         transform: translateY(-.5em);
         img{
           border-radius: 50%;
-          height: 2.5vw;
-          width: 2.6vw;
+          height: 4vw;
+          width: 4.1vw;
         }
         .dropdown{
           margin-top: .5em;
@@ -87,6 +92,8 @@ nav {
             margin-top: .7em;
             border-radius: 0 0 5px 5px;
             a{
+              font-size: 1.3vw;
+              font-weight: 400;
               &:hover{
                 cursor: pointer;
               }
@@ -94,7 +101,8 @@ nav {
           }
           .dropdown-toggle{
             margin-left: .5em;
-            font-size: 1vw;
+            font-size: 2vw;
+            font-weight: 400;
             &:hover{
               cursor: pointer;
             }
@@ -107,7 +115,7 @@ nav {
       display: flex;
       list-style-type: none;
       li{
-        margin: 0 1em;
+        margin: 0 1vw;
         justify-content: space-evenly;
         a{
           color: rgb(48, 48, 48);
@@ -157,7 +165,9 @@ nav {
       border-top: none;
       margin-top: .7em;
       border-radius: 0 0 5px 5px;
+      transform: translateX(-2em) !important;
       a{
+        font-size: 1em !important;
         &:hover{
           cursor: pointer;
         }
