@@ -46,13 +46,18 @@ nav {
       li{
         margin: 0 1vw;
         justify-content: space-evenly;
+        &:focus {
+          border: none;
+          outline: none;
+        }
         a{
           color: rgb(48, 48, 48);
           font-weight: 400;
           font-size: 1.5vw;
-        }
-        a:hover{
-          color: #33aeac;
+          &:hover {
+            color: #33aeac;
+            cursor: pointer;
+          }
         }
       }
     }
