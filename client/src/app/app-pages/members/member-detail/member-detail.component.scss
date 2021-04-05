@@ -1,3 +1,27 @@
+
+//Utility
+.form {
+  background-color: #EEEEEE;
+  padding: 1em;
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    .question {
+      color: #343434;
+      font-size: 2vw;
+      margin: 0;
+    }
+    .answer {
+      font-size: 1.5vw;
+      color: black;
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+
 .wrapper {
   margin: 2em auto;
   background-color: #FDFDFD;
@@ -119,26 +143,95 @@
   }
 }
 
-
-//Utility
-.form {
-  background-color: #EEEEEE;
-  padding: 1em;
-  .form-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0;
-    .question {
-      color: #343434;
-      font-size: 2vw;
-      margin: 0;
+//Mobile
+@media screen and (max-width:1024px) {
+  .wrapper {
+    margin: .5em auto;
+    margin-bottom: 7em;
+    width: 95vw;
+    .heading {
+      height: 100%;
+      .image-wrapper {
+        margin-right: 1em;
+      }
+      .text-wrapper {
+        margin-top: .5em;
+        h1 {
+          font-size: 8vw;
+          margin-bottom: 0;
+        }
+        .location {
+          font-size: 2vw;
+          margin-bottom: 1em;
+        }
+        .introduction {
+          margin-top: 0em;
+          font-size: 2.2vw;
+          margin-bottom: 0;
+        }
+        a {
+          font-size: 3vw;
+          margin-top: 1em;
+          i {
+            font-size: 1em;
+            margin-right: .2em;
+          }
+        }
+      }
+      .like-button {
+        bottom: 5vw;
+        right: 15vw;
+        button {
+          font-size: 5.5vw;
+          width: 8vw;
+          height: 8vw;
+          i {
+            margin-top: .35em;
+          }
+        }
+      }
     }
-    .answer {
-      font-size: 1.5vw;
-      color: black;
-      margin: 0;
-      text-align: center;
+    section {
+      margin: 1em 1.5em;
+      h2 {
+        font-size: 5vw;
+        margin-bottom: 2vw;
+      }
+      p {
+        color: #343434;
+        font-size: 3vw;
+        margin-bottom: 2.5vw;
+      }
+    }
+    
+    //Interests Section
+    .interests-wrapper {
+      .interest {
+        font-size: 3.5vw;
+        padding: .1em 1.5em;
+        border-radius: 2px;
+        margin: 1.6vw;
+      }
+    }
+    .terms {
+      .term {
+        font-weight: 600;
+        font-size: 3vw;
+        color: #343434;
+      }
+    }
+  }
+  //Forms
+  .form {
+    padding: .5em;
+    .form-group {
+      margin-bottom: 0;
+      .question {
+        font-size: 3.6vw;
+      }
+      .answer {
+        font-size: 4vw;
+      }
     }
   }
 }
