@@ -21,14 +21,14 @@ namespace API
             var services = scope.ServiceProvider;
             try
             {
-                var context = services.GetRequiredService<DataContext>();
-                await context.Database.MigrateAsync();
-                await Seed.SeedUsers(context);
+                var context = services.GetRequiredService<DataContext>(); //Sets the services
+                await context.Database.MigrateAsync(); //applies the migrations to the database
+                await Seed.SeedUsers(context); //seeds users to the db
             }
             catch (System.Exception ex)
             {
-                var logger = services.GetRequiredService<ILogger<Program>>();
-                logger.LogError(ex,"An error occured during migration");
+                var logger = services.GetRequiredService<ILogger<Program>>(); //Sets up the logger
+                logger.LogError(ex,"An error occured during migration"); //logs the error
             }
             await host.RunAsync();
         }

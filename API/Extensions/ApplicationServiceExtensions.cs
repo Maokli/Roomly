@@ -11,6 +11,12 @@ namespace API.Extensions
 {
     public static class ApplicationServiceExtensions
     {
+
+        ///<summary>
+        ///Injects extra application services into the startup class.
+        ///Takes an IConfiguration as a parameter.
+        ///Mainly used to keep the startup class clean
+        ///</summary>
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config){
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserRepository, UserRepository>();
@@ -19,6 +25,7 @@ namespace API.Extensions
                 {
                     options.UseSqlite(config.GetConnectionString("DefaultConnection"));
                 });
+                
         return services;
         }
     }

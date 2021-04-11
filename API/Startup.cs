@@ -35,15 +35,20 @@ namespace API
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-
+      //Injects the services set in extension class
       services.AddApplicationServices(_config);
+
       services.AddControllers();
+
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
       });
+
       services.AddCors();
-      services.AddIdentityServices(_config);
+
+      //Injects services set in the extension class
+      services.AddIdentityServices(_config); 
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,8 +65,9 @@ namespace API
 
       app.UseRouting();
 
+      //allows the local angular front end to use the api
       app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod()
-                  .WithOrigins("https://localhost:4200"));
+                  .WithOrigins("https://localhost:4200")); 
 
       app.UseAuthentication();
 

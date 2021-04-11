@@ -28,6 +28,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { MemberCardComponent } from './app-pages/members/member-card/member-card.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { AnswerPipe } from './pipes/answer.pipe';
+import { MemberEditComponent } from './app-pages/members/member-edit/member-edit.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { AnswerPipe } from './pipes/answer.pipe';
     ServerErrorComponent,
     MemberCardComponent,
     AnswerPipe,
+    MemberEditComponent,
   ],
   imports: [
     BrowserModule,

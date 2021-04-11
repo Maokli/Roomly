@@ -8,6 +8,11 @@ namespace API.Services
 {
     public static class IdentityServiceExtensions
     {
+        ///<summary>
+        ///Injects extra Identity services into the startup class.
+        ///Takes an IConfiguration as a parameter.
+        ///Mainly used to keep the startup class clean
+        ///</summary>
         public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config){
             
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -19,6 +24,7 @@ namespace API.Services
                     ValidateAudience = false
                     };
                 });
+                
             return services;
         }
     }

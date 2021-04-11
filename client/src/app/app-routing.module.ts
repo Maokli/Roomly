@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MatchesComponent } from './app-pages/matches/matches.component';
 import { MemberDetailComponent } from './app-pages/members/member-detail/member-detail.component';
+import { MemberEditComponent } from './app-pages/members/member-edit/member-edit.component';
 import { MemberListComponent } from './app-pages/members/member-list/member-list.component';
 import { MessagesComponent } from './app-pages/messages/messages.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path:'find-roommates', component:MemberListComponent},
+      {path:'user/edit', component:MemberEditComponent},
       {path:'user/:username', component:MemberDetailComponent},
       {path:'matches', component:MatchesComponent},
       {path:'messages', component:MessagesComponent},
