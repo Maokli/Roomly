@@ -11,6 +11,7 @@ import { TestErrorsComponent } from './errors/test-errors/test-errors.component'
 import { LoginPageComponent } from './flat-pages/login-page/login-page.component';
 import { RegisterPageComponent } from './flat-pages/register-page/register-page.component';
 import { AuthGuard } from './guards/auth.guard';
+import { PreventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.guard';
 import { HomeComponent } from './shared/home/home.component';
 
 const routes: Routes = [
@@ -22,17 +23,17 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
-      {path:'find-roommates', component:MemberListComponent},
-      {path:'user/edit', component:MemberEditComponent},
-      {path:'user/:username', component:MemberDetailComponent},
-      {path:'matches', component:MatchesComponent},
-      {path:'messages', component:MessagesComponent},
+      {path:'find-roommates', component: MemberListComponent},
+      {path:'user/edit', component: MemberEditComponent, canDeactivate: [PreventUnsavedChangesGuard]},
+      {path:'user/:username', component: MemberDetailComponent},
+      {path:'matches', component: MatchesComponent},
+      {path:'messages', component: MessagesComponent},
     ]
   },
-  {path:'errors', component:TestErrorsComponent},
-  {path:'not-found', component:NotFoundComponent},
-  {path:'server-error', component:ServerErrorComponent},
-  {path:'**', component:NotFoundComponent, pathMatch: 'full'},
+  {path:'errors', component: TestErrorsComponent},
+  {path:'not-found', component: NotFoundComponent},
+  {path:'server-error', component: ServerErrorComponent},
+  {path:'**', component: NotFoundComponent, pathMatch: 'full'},
 ];
 
 @NgModule({

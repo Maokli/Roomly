@@ -1,1 +1,74 @@
-<p>member-edit works!</p>
+<ng-container *ngIf="member">
+  <form #editForm="ngForm" (ngSubmit)="saveChanges()">
+    <h4>Username</h4>
+    <input type="text" [(ngModel)]="member.userName" name="userName" >
+    
+    <h4>First name</h4>
+    <input type="text" [(ngModel)]="member.firstName" name="firstName" >
+    
+    <h4>Last name</h4>
+    <input type="text" [(ngModel)]="member.lastName" name="lastName" >
+    
+    <h4>Gender</h4>
+    <select [(ngModel)]="member.gender" name="gender" >
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+    </select>
+    
+    <h4>Budget</h4>
+    <input type="text" [(ngModel)]="member.budget" name="budget" >
+    
+    <h4>Country</h4>
+    <input type="text" [(ngModel)]="member.country" name="country" >
+    
+    <h4>Last name</h4>
+    <input type="text" [(ngModel)]="member.city" name="city" >
+    
+    <h4>Description</h4>
+    <textarea type="text" [(ngModel)]="member.description" name="description" ></textarea>
+    
+    <h4>Interests</h4>
+    <textarea type="text" [(ngModel)]="member.interests" name="interests" ></textarea>
+
+    <center><h4>Living Information</h4></center>
+
+    <h4>Do you drink</h4>
+    <select [(ngModel)]="member.doesDrink" name="doesDrink" >
+      <option [ngValue]="true">Yes</option>
+      <option [ngValue]="false">No</option>
+    </select>
+
+    <h4>Do you smoke</h4>
+    <select [(ngModel)]="member.doesSmoke" name="doesSmoke" >
+      <option [ngValue]="true">Yes</option>
+      <option [ngValue]="false">No</option>
+    </select>
+
+    <h4>Do you have pets</h4>
+    <select [(ngModel)]="member.hasPets" name="hasPets" >
+      <option [ngValue]="true">Yes</option>
+      <option [ngValue]="false">No</option>
+    </select>
+
+    <h4>Have you ever lived with someone before</h4>
+    <select [(ngModel)]="member.hasLivedWithSomeoneBefore" name="hasLivedWithSomeoneBefore" >
+      <option [ngValue]="true">Yes</option>
+      <option [ngValue]="false">No</option>
+    </select>
+
+    <h4>Do you have allergies</h4>
+    <select [(ngModel)]="member.hasAllergies" name="hasAllergies" >
+      <option [ngValue]="true">Yes</option>
+      <option [ngValue]="false">No</option>
+    </select>
+
+    <h4>Are you moving alone </h4>
+    <select [(ngModel)]="member.isMovingAlone" name="isMovingAlone" >
+      <option [ngValue]="true">Yes</option>
+      <option [ngValue]="false">No</option>
+    </select>
+    <button [disabled]="!editForm.dirty" type="submit">
+      Save Changes
+    </button>
+  </form>
+</ng-container>
