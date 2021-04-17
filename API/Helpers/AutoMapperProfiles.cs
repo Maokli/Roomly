@@ -29,6 +29,14 @@ namespace API.Helpers
         ///Maps from a Term object to a TermDto object
         ///</summary>
         CreateMap<Term, TermDto>();
+
+        CreateMap<MemberUpdateDto, AppUser>()
+        .ForMember(dist => dist.TermsAndConditions,
+                   opt => opt.MapFrom(src => src.TermsAndConditions
+                   .Select(t => new Term {
+                     Id = t.Id,
+                     TermContent = t.TermContent
+                   })));
     }
   }
 }
