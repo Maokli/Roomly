@@ -1,6 +1,6 @@
 <div class="members-list-container">
-  <ng-container *ngIf="members">
-    <app-member-card *ngFor="let member of members" [member]="member">
+  <ng-container *ngIf="members$ | async">
+    <app-member-card *ngFor="let member of members$ | async" [member]="member">
 
     </app-member-card>
   </ng-container>
