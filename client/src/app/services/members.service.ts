@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Member } from '../models/member';
+import { MemberUpdate } from '../models/memberUpdate';
 
 
 @Injectable({
@@ -18,10 +19,15 @@ export class MembersService {
       return response;
     }))
   }
+
   getMember(username: string){
     return this.http.get<Member>(this.baseUrl + 'users/'+username).pipe(map(response => {
       response.interestsArray = response.interests.split(',')
       return response;
     }))
+  }
+
+  updateMember(member: MemberUpdate) {
+    return this.http.put(this.baseUrl + 'users/',member);
   }
 }

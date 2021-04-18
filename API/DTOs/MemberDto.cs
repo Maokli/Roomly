@@ -21,6 +21,8 @@ namespace API.DTOs
         public string PhotoUrl { get; set; }
 
         public int Age { get; set; }
+        
+        public DateTime DateOfBirth { get; set; }
 
         public DateTime Joined { get; set; }
 

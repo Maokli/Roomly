@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs/operators';
 import { Member } from 'src/app/models/member';
+import { MemberUpdate } from 'src/app/models/memberUpdate';
 import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
 import { MembersService } from 'src/app/services/members.service';
@@ -14,7 +15,7 @@ import { MembersService } from 'src/app/services/members.service';
 })
 export class MemberEditComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm;
-  member: Member;
+  member: MemberUpdate;
   user: User;
   @HostListener('window:beforeunload', ['$event']) unloadNotification ($event: any) {
     if(this.editForm.dirty)
@@ -42,8 +43,10 @@ export class MemberEditComponent implements OnInit {
   }
 
   saveChanges(): void {
-    console.log(this.member);
-    this.toastr.success("Profile Updated Successfully");
-    this.editForm.reset(this.member);
+    this.membersService.updateMember(this.member).subscribe(()=> {
+      //In case of success
+      this.toastr.success("Profile Updated Successfully");
+      this.editForm.reset(this.member);
+    })
   }
 }

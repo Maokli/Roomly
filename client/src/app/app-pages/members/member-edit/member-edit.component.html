@@ -15,6 +15,11 @@
       <option value="male">Male</option>
     </select>
     
+    <h4>Birthday</h4>
+    <input type="date" [ngModel]="member.dateOfBirth | date:'yyyy-MM-dd'"
+    (ngModelChange)="member.dateOfBirth = $event" 
+    name="dateOfBirth" >
+
     <h4>Budget</h4>
     <input type="text" [(ngModel)]="member.budget" name="budget" >
     
