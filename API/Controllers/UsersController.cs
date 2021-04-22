@@ -65,6 +65,8 @@ namespace API.Controllers
 
       if(result.Error != null) return BadRequest(result.Error.Message);
 
+      DeleteOldPhoto(user);
+
       var photo = CreatePhoto(result);
 
       AddPhotoToDb(photo, user);
@@ -95,6 +97,16 @@ namespace API.Controllers
       } 
 
       user.Photos.Add(photo);
+    }
+
+    private async void DeleteOldPhoto(AppUser user)
+    {
+      if(user.Photos.Count > 0)
+      {
+        var currentPhoto = user.Photos.FirstOrDefault(p => p.IsMain);
+        user.Photos.Remove(currentPhoto);
+        await _photoService.DeletePhotoAsync(currentPhoto.PublicId);
+      } 
     }
   }
 }
