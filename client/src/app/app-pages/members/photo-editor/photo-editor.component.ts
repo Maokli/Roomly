@@ -1,8 +1,10 @@
 import { Component, OnInit} from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
+import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
+import { BusyService } from 'src/app/services/busy.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -16,7 +18,9 @@ export class PhotoEditorComponent implements OnInit {
   baseUrl = environment.ApiUrl;
   user: User;
 
-  constructor(private accountService: AccountService) {
+  constructor(private accountService: AccountService,
+              private toastr: ToastrService,
+              private busyService: BusyService) {
     accountService.currentUser$.pipe(take(1))
       .subscribe(user => this.user = user);
    }
@@ -44,11 +48,17 @@ export class PhotoEditorComponent implements OnInit {
       file.withCredentials = false;
     }
 
+    this.uploader.onProgressItem = () => {
+      this.busyService.busy();
+    }
+
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       if(response){
+        this.busyService.idle();
         const photo = JSON.parse(response);
         this.user.photoUrl = photo.url;
         this.accountService.setCurrentUser(this.user);
+        this.toastr.success("Photo uploaded successfully");
       }
     }
   }
