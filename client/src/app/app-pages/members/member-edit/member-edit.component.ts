@@ -7,6 +7,8 @@ import { MemberUpdate } from 'src/app/models/memberUpdate';
 import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
 import { MembersService } from 'src/app/services/members.service';
+import "automapper-ts/dist/automapper";
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-member-edit',

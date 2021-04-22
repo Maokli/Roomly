@@ -39,14 +39,9 @@ export class MembersService {
     return this.http.put(this.baseUrl + 'users/',member).pipe(map(
       () => {
         const index = this.members.findIndex(x => x.userName === member.userName);
-        this.members[index] = this.mapToMember(member);
+        this.members[index] = member;
       }
     ));
   }
 
-  private mapToMember(member: MemberUpdate): Member {
-    automapper.createMap('MemberUpdate', 'Member');
-
-    return automapper.map('MemberUpdate', 'Member',member);
-  }
 }

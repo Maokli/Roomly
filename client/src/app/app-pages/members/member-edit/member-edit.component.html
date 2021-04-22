@@ -72,6 +72,7 @@
       <option [ngValue]="true">Yes</option>
       <option [ngValue]="false">No</option>
     </select>
+    <app-photo-editor [member]="member" [editForm]="editForm"></app-photo-editor>
     <button [disabled]="!editForm.dirty" type="submit">
       Save Changes
     </button>

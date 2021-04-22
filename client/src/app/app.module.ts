@@ -31,6 +31,7 @@ import { AnswerPipe } from './pipes/answer.pipe';
 import { MemberEditComponent } from './app-pages/members/member-edit/member-edit.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { PhotoEditorComponent } from './app-pages/members/photo-editor/photo-editor.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
     MemberCardComponent,
     AnswerPipe,
     MemberEditComponent,
+    PhotoEditorComponent,
   ],
   imports: [
     BrowserModule,

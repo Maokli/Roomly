@@ -101,7 +101,9 @@
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/automapper-ts/dist/automapper.min.js"
+            ]
           }
         },
         "lint": {
