@@ -1,3 +1,6 @@
+
+
+
 .background{
   position: absolute;
   z-index: -10;
@@ -31,7 +34,7 @@
 .register-container{
   display: flex;
   justify-content: center;
-  transform: translateY(50%);
+  margin-top: 10vh;
   #register {
     display: flex;
     overflow: hidden;
@@ -40,50 +43,22 @@
     align-items: center;
     justify-content: center;
     background-color: white;
-    width: 30vw;
-    padding: 1.5em;
+    width: 50vw;
+    height: auto;
     .register-form{
       width:100%;
+      margin: 1.5em;
+      height: 100%;
       h2{
         text-align: center;
+        margin-top: .5em;
       }
       form{
         .form-group {
-          position: relative;
           margin: 2rem 0;
-          width: 100%;
-          .input{
-            background: transparent;
-          }
-          label{
-            position:absolute;
-            top:0px;
-            left:0px;
-            font-size:16px;
-            font-weight: lighter;
-            color:#000;	
-            pointer-events: none;
-            transition: all 0.5s ease-in-out;
-          }
-          .input{ 
-            border:0;
-            border-bottom:1.5px solid #4EB094;  
-            background:transparent;
-            width:100%;
-            padding:8px 0 5px 0;
-            font-size:16px;
-            color:#000;
-            &:focus{ 
-              border:none;	
-              outline:none;
-              border-bottom:1.5px solid #327599;  
-            }
-            &:focus ~ label,
-            &:valid ~ label{
-              top:-12px;
-              font-size:12px;
-            }
-          }
+          width: 50%;
+          display: flex;
+          flex-direction: column;
         }
         button{
           margin: 0 auto;

@@ -6,11 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeNavComponent } from './flat-pages/home-nav/home-nav.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './flat-pages/login-page/login-page.component';
 import { AppNavComponent } from './app-pages/app-nav/app-nav.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { RegisterPageComponent } from './flat-pages/register-page/register-page.component';
 import { MemberListComponent } from './app-pages/members/member-list/member-list.component';
 import { MemberDetailComponent } from './app-pages/members/member-detail/member-detail.component';
@@ -19,7 +18,6 @@ import { MessagesComponent } from './app-pages/messages/messages.component';
 import { HomeComponent } from './shared/home/home.component';
 import { FlatHomePageComponent } from './flat-pages/flat-home-page/flat-home-page.component';
 import { AppHomePageComponent } from './app-pages/app-home-page/app-home-page.component';
-import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './modules/shared.module';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
@@ -32,6 +30,8 @@ import { MemberEditComponent } from './app-pages/members/member-edit/member-edit
 import { NgxSpinnerModule } from "ngx-spinner";
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './app-pages/members/photo-editor/photo-editor.component';
+import { TextInputComponent } from './forms/text-input/text-input.component';
+import {DateInputComponent} from './forms/date-input/date-input.component';
 
 
 @NgModule({
@@ -56,6 +56,8 @@ import { PhotoEditorComponent } from './app-pages/members/photo-editor/photo-edi
     AnswerPipe,
     MemberEditComponent,
     PhotoEditorComponent,
+    TextInputComponent,
+    DateInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { PhotoEditorComponent } from './app-pages/members/photo-editor/photo-edi
     BrowserAnimationsModule,
     FormsModule,
     SharedModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi:true},

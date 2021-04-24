@@ -7,16 +7,109 @@
     <div class="register-form">
       <h2>Sign Up</h2>
       <hr>
-    <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+      
+      <app-text-input 
+      [formControl]='registerForm.controls["firstName"]'
+      [label]='"First Name"'
+      >
+      </app-text-input>
+      <app-text-input 
+      [formControl]='registerForm.controls["lastName"]'
+      [label]='"Last Name"'
+      >
+      </app-text-input>
+      <app-text-input 
+      [formControl]='registerForm.controls["username"]'
+      [label]='"Username"'
+      >
+      </app-text-input>
+      <app-date-input 
+      [formControl]='registerForm.controls["dateOfBirth"]'
+      [maxDate]="maxDate"
+      [label]='"Date Of Birth"'
+      >
+      </app-date-input>
       <div class="form-group">
-        <input class="input" type="text" [(ngModel)]="model.username" name="username" id="username" required="">
-        <label for="username">Username</label>
+        <label>Gender</label>
+        <select formControlName="gender" >
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+      </div>
+      <app-text-input 
+      [formControl]='registerForm.controls["budget"]'
+      [label]='"Budget"'
+      >
+      </app-text-input>
+      <app-text-input 
+      [formControl]='registerForm.controls["city"]'
+      [label]='"City"'
+      >
+      </app-text-input>
+      <app-text-input 
+      [formControl]='registerForm.controls["country"]'
+      [label]='"Country"'
+      >
+      </app-text-input>
+      <app-text-input 
+      [formControl]='registerForm.controls["password"]'
+      [label]='"Password"'
+      [type]='"password"'
+      >
+      </app-text-input>
+      <app-text-input 
+      [formControl]='registerForm.controls["confirmPassword"]'
+      [label]='"Confirm Password"'
+      [type]='"password"'
+      >
+      </app-text-input>
+      <!-- Living Info Form -->
+      <div class="form-group">
+        <label>Do you drink?</label>
+        <select formControlName="doesDrink" >
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option>
+        </select>
       </div>
       <div class="form-group">
-        <input class="input" type="password" [(ngModel)]="model.password" name="password" id="password" required="">
-        <label for="password">Password</label>
+        <label>Do you smoke?</label>
+        <select formControlName="doesSmoke" >
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option>
+        </select>
       </div>
-        <button type="submit">Sign Up</button>
+      <div class="form-group">
+        <label>Do you have pets?</label>
+        <select formControlName="hasPets" >
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Have you ever lived with someone before?</label>
+        <select formControlName="hasLivedWithSomeoneBefore" >
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Do you have any allergies?</label>
+        <select formControlName="hasAllergies" >
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Are you moving in alone?</label>
+        <select formControlName="isMovingAlone" >
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option>
+        </select>
+      </div>
+
+      <button type="submit">Sign Up</button>
     </form>
   </div>
+
 
