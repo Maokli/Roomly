@@ -1,6 +1,7 @@
 import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/services/account.service';
 
@@ -10,11 +11,11 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent implements OnInit {
-  model:any = {};
   registerForm: FormGroup;
   maxDate: Date;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService, private fb: FormBuilder) { }
+  constructor(private accountService: AccountService, private toastr: ToastrService,
+     private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.InitializeForm();
@@ -36,7 +37,7 @@ export class RegisterPageComponent implements OnInit {
       dateOfBirth: ['', Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
-      budget: ['', Validators.required],
+      budget: [0, Validators.required],
       username: ['', Validators.required],
       password: ['', 
         [Validators.required, Validators.minLength(8), Validators.maxLength(15)]],
@@ -53,13 +54,14 @@ export class RegisterPageComponent implements OnInit {
   }
 
   register(){
-    // this.accountService.register(this.model).subscribe(response => {
-    //   console.log(response);
-    // }, error => {
-    //   console.log(error);
-    //   this.toastr.error(error.error)
-    // })
-    console.log(this.registerForm.value)
+    const value = { ...this.registerForm.value, budget: +this.registerForm.value.budget };
+    this.accountService.register(value).subscribe(response => {
+      this.router.navigateByUrl('/find-roommates');
+
+    }, error => {
+      console.log(error);
+      this.toastr.error(error.error)
+    })
   }
 
 }

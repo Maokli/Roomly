@@ -16,7 +16,7 @@
       <li>
         <div class="user" 
         *ngIf="(accountService.currentUser$ | async) as user">
-          <img src="{{user.photoUrl}}" alt="">
+          <img src="{{user.photoUrl || 'assets/user.png'}}" alt="">
           <div class="dropdown" dropdown>
             <a class="dropdown-toggle" 
                 dropdownToggle>{{user.userName | titlecase}}

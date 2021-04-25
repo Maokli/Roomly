@@ -7,7 +7,7 @@
     <div class="register-form">
       <h2>Sign Up</h2>
       <hr>
-    <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+    <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && register()" autocomplete="off">
       
       <app-text-input 
       [formControl]='registerForm.controls["firstName"]'
@@ -40,6 +40,7 @@
       <app-text-input 
       [formControl]='registerForm.controls["budget"]'
       [label]='"Budget"'
+      [type]='"number"'
       >
       </app-text-input>
       <app-text-input 
@@ -108,7 +109,7 @@
         </select>
       </div>
 
-      <button type="submit">Sign Up</button>
+      <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
     </form>
   </div>
 

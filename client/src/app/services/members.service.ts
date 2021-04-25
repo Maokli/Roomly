@@ -19,7 +19,7 @@ export class MembersService {
   getMembers() {
     if(this.members.length > 0) return of(this.members);
     return this.http.get<Member[]>(this.baseUrl + 'users').pipe(map(response => {
-      response.forEach(member => member.interestsArray = member.interests.split(','));
+      response.forEach(member => member.interestsArray = member.interests?.split(','));
       this.members = response;
       return response;
     }))
@@ -30,7 +30,8 @@ export class MembersService {
     if(member !== undefined) return of(member)
     
     return this.http.get<Member>(this.baseUrl + 'users/'+username).pipe(map(response => {
-      response.interestsArray = response.interests.split(',')
+      if(response.interestsArray) 
+        response.interestsArray = response.interests.split(',');
       return response;
     }))
   }

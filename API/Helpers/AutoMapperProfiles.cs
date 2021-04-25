@@ -37,6 +37,8 @@ namespace API.Helpers
                      Id = t.Id,
                      TermContent = t.TermContent
                    })));
+        
+        CreateMap<RegisterDto, AppUser>();
     }
   }
 }
