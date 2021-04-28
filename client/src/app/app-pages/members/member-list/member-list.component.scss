@@ -6,6 +6,10 @@
   justify-content: space-around;
   margin-bottom: 2em;
 }
+.pagination-container {
+  display: flex;
+  justify-content: center;
+}
 @media screen and (max-width: 768px) {
   .members-list-container{
     margin-bottom: 13vh;

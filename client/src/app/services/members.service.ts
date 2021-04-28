@@ -1,4 +1,4 @@
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Member } from '../models/member';
 import { MemberUpdate } from '../models/memberUpdate';
 import "automapper-ts/dist/automapper"
+import { PaginatedResult } from '../models/pagination';
 
 
 @Injectable({
@@ -14,14 +15,25 @@ import "automapper-ts/dist/automapper"
 export class MembersService {
   baseUrl = environment.ApiUrl;
   members: Member[] = [];
+  paginatedResult: PaginatedResult<Member[]> = new PaginatedResult<Member[]>();
   constructor(private http: HttpClient) { }
 
-  getMembers() {
-    if(this.members.length > 0) return of(this.members);
-    return this.http.get<Member[]>(this.baseUrl + 'users').pipe(map(response => {
-      response.forEach(member => member.interestsArray = member.interests?.split(','));
-      this.members = response;
-      return response;
+  getMembers(page?: number, itemsPerPage?: number) {
+    let params = new HttpParams();
+    if(page !== null && itemsPerPage !== null){
+      params = params.append('pageNumber', page.toString());
+      params = params.append('pageSize', itemsPerPage.toString());
+    }
+    //if(this.members.length > 0) return of(this.members);
+    return this.http.get<Member[]>(this.baseUrl + 'users', {observe: "response", params})
+    .pipe(map(response => {
+      response.body.forEach(member => member.interestsArray = member.interests?.split(','));
+      
+      this.paginatedResult.result = response.body;
+
+      if(response.headers.get('Pagination') !== null)
+        this.paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+      return this.paginatedResult;
     }))
   }
 
