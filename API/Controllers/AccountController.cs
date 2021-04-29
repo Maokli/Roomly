@@ -46,7 +46,8 @@ namespace API.Controllers
       return new UserDto
       {
         UserName = user.UserName,
-        Token = _tokenService.CreateToken(user)
+        Token = _tokenService.CreateToken(user),
+        Country = user.Country
       };
     }
 
@@ -68,7 +69,8 @@ namespace API.Controllers
       {
         UserName = user.UserName,
         Token = _tokenService.CreateToken(user),
-        PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain == true).Url
+        PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain == true).Url,
+        Country = user.Country
       };
     }
     private async Task<bool> UserExists(string userName)

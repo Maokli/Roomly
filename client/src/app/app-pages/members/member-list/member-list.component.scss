@@ -1,4 +1,50 @@
 
+.filters-container {
+  margin: 1.5em auto;
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .form-group {
+      margin: 0 .5em;
+      input, select {
+        outline: none;
+        margin-left: .5em;
+      }
+    }
+    button {
+      margin: .5em;
+      margin-top: 0;
+    }
+    .submit {
+      padding: .5em;
+      outline: none;
+      color: white;
+      font-weight: 500;
+      font-size: 1vw;
+      border: none;
+      border-radius: 10px;
+      background-color: #4EB094;
+      &:hover{
+        background-color: #419d83;
+      }
+    }
+    .reset {
+      color: white;
+      font-weight: 500;
+      background-color: #327599;
+      border: none;
+      border-radius: 10px;
+      padding: .5em;
+      font-size: 1vw;
+      &:hover {
+        background-color: #276180;
+        color: white;
+      }
+    }
+  }
+}
+
 .members-list-container{
   display: flex;
   flex-wrap: wrap;
@@ -6,6 +52,7 @@
   justify-content: space-around;
   margin-bottom: 2em;
 }
+
 .pagination-container {
   display: flex;
   justify-content: center;

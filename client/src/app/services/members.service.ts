@@ -7,6 +7,7 @@ import { Member } from '../models/member';
 import { MemberUpdate } from '../models/memberUpdate';
 import "automapper-ts/dist/automapper"
 import { PaginatedResult } from '../models/pagination';
+import { UserParams } from '../models/userParams';
 
 
 @Injectable({
@@ -15,28 +16,20 @@ import { PaginatedResult } from '../models/pagination';
 export class MembersService {
   baseUrl = environment.ApiUrl;
   members: Member[] = [];
-  paginatedResult: PaginatedResult<Member[]> = new PaginatedResult<Member[]>();
   constructor(private http: HttpClient) { }
 
-  getMembers(page?: number, itemsPerPage?: number) {
-    let params = new HttpParams();
-    if(page !== null && itemsPerPage !== null){
-      params = params.append('pageNumber', page.toString());
-      params = params.append('pageSize', itemsPerPage.toString());
-    }
-    //if(this.members.length > 0) return of(this.members);
-    return this.http.get<Member[]>(this.baseUrl + 'users', {observe: "response", params})
-    .pipe(map(response => {
-      response.body.forEach(member => member.interestsArray = member.interests?.split(','));
-      
-      this.paginatedResult.result = response.body;
+  getMembers(userParams: UserParams) {
+    let params = this.getPaginationHeaders(userParams.pageNumber, userParams.pageSize);
 
-      if(response.headers.get('Pagination') !== null)
-        this.paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
-      return this.paginatedResult;
-    }))
+    params = params.append('minAge', userParams.minAge.toString());
+    params = params.append('maxAge', userParams.maxAge.toString());
+    params = params.append('country', userParams.country);
+    params = params.append('gender', userParams.gender);
+
+    return this.GetPaginatedResults(this.baseUrl + 'users', params);
   }
 
+  
   getMember(username: string){
     const member = this.members.find(x => x.userName === username);
     if(member !== undefined) return of(member)
@@ -56,5 +49,31 @@ export class MembersService {
       }
     ));
   }
+
+  private GetPaginatedResults(url,params: HttpParams) {
+    const paginatedResult: PaginatedResult<Member[]> = new PaginatedResult<Member[]>();
+
+    return this.http.get<Member[]>(url, { observe: "response", params })
+      .pipe(map(response => {
+        response.body.forEach(member => 
+            member.interestsArray = member.interests?.split(','));
+
+        paginatedResult.result = response.body;
+
+        if (response.headers.get('Pagination') !== null)
+          paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+        return paginatedResult;
+      }));
+  }
+
+  private getPaginationHeaders(pageNumber: number, pageSize: number) {
+    let params = new HttpParams();
+
+    params = params.append('pageNumber', pageNumber.toString());
+    params = params.append('pageSize', pageSize.toString());
+
+    return params;
+  }
+
 
 }
