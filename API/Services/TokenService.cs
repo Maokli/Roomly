@@ -34,8 +34,8 @@ namespace API.Services
       //Initializes the claims
       var claims = new List<Claim>{
 
-          //Adds a claim holding the username
-          new Claim(JwtRegisteredClaimNames.NameId, user.UserName)
+          new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
+          new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
       };
 
       //Creates a signing credentials
