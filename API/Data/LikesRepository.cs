@@ -39,12 +39,13 @@ namespace API.Data
       }
 
       return await users.Select(u => new LikeDto {
-          Username = u.UserName,
+          UserName = u.UserName,
           Age = u.DateOfBirth.CalculateAge(),
           PhotoUrl = u.Photos.FirstOrDefault(p => p.IsMain).Url,
           City = u.City,
           Country = u.Country,
-          Id = u.Id
+          Id = u.Id,
+          Budget = u.Budget
       }).ToListAsync();
     }
 

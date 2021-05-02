@@ -4,7 +4,7 @@
     <img src="{{member.photoUrl}}" alt="{{member.userName}}">
     <ul class="buttons">
       <li><a routerLink="/user/{{member.userName}}"><i class="fas fa-info"></i></a></li>
-      <li><a routerLink=""><i class="fas fa-heart"></i></a></li>
+      <li><a (click)="addLike(member)"><i class="fas fa-heart"></i></a></li>
       <li><a routerLink=""><i class="fas fa-envelope"></i></a></li>
     </ul>
     <p>${{member.budget}}<span> /mo</span></p>
@@ -14,10 +14,10 @@
       <h4>{{member.userName | titlecase}}, {{member.age}}</h4>
       <p>looking for roommates in <a>{{member.country}}, {{member.city}}</a></p>
     </div>
-    <div class="description">
+    <div class="description" *ngIf="member.description">
       <p>{{member.description}}</p>
     </div>
-    <div class="interests">
+    <div class="interests" *ngIf="member.interests">
       <p>Interests :</p>
       <div class="interests-wrapper">
         <div class="interest"

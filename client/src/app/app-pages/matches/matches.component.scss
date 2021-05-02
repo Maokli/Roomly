@@ -1,0 +1,16 @@
+
+.form-group {
+  margin: 0 .5em;
+  input, select {
+    outline: none;
+    margin-left: .5em;
+  }
+}
+
+.members-list-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: .5em;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}

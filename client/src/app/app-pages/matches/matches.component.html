@@ -1,1 +1,22 @@
-<p>matches works!</p>
+<div class="text-center mt-3">
+  <h2>{{predicate === "liked" ? "Users I like" : "Users who like me"}}</h2>
+</div>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="form-group">
+      <label>Filter: </label>
+      <select [(ngModel)]="predicate" name="predicate" (change)="loadLikes()">
+        <option selected value="liked">Users I like</option>
+        <option value="likedBy">Users that liked me</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="members-list-container">
+    <ng-container *ngIf="members">
+      <app-member-card *ngFor="let member of members" [member]="member">
+      </app-member-card>
+    </ng-container>
+  </div>
+</div>
