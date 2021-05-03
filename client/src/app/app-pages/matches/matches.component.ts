@@ -20,6 +20,16 @@ export class MatchesComponent implements OnInit {
   loadLikes() {
     this.membersService.getLikes(this.predicate).subscribe(response => {
       this.members = response;
+      this.resizeCards();
     })
+  }
+
+  resizeCards(){
+    setTimeout(() => {
+      const cards = document.querySelectorAll<HTMLElement>('.card');
+      console.log(cards);
+      cards.forEach(card => card.style.height = "auto");
+    },500)
+
   }
 }
