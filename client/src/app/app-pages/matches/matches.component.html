@@ -19,4 +19,18 @@
       </app-member-card>
     </ng-container>
   </div>
+  <div class="pagination-container">
+    <pagination *ngIf="pagination"
+              [boundaryLinks]="true"
+              [totalItems]="pagination.totalItems"
+              [itemsPerPage]="pagination.itemsPerPage"
+              [(ngModel)]="pagination.currentPage"
+              (pageChanged)="pageChanged($event)"
+              previousText="&lsaquo;"
+              nextText="&rsaquo;"
+              firstText="&laquo;"
+              lastText="&raquo;">
+  
+    </pagination>
+  </div>
 </div>

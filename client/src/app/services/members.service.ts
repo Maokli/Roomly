@@ -40,10 +40,12 @@ export class MembersService {
    }
 
    addLike(username: string) {
-     return this.http.post(this.baseUrl + "likes/"+username, {});
+     return this.http.post(this.baseUrl + "likes/"+username, {}, {responseType: 'text'});
    }
-   getLikes(predicate: string) {
-     return this.http.get<Partial<Member[]>>(this.baseUrl + "likes?predicate="+predicate);
+   getLikes(predicate: string, pageNumber: number, pageSize: number) {
+     let params =  this.getPaginationHeaders(pageNumber, pageSize);
+     params = params.append('predicate', predicate);
+     return this.GetPaginatedResults(this.baseUrl + "likes", params);
    }
 
   getMembers(userParams: UserParams) {
@@ -90,9 +92,9 @@ export class MembersService {
   }
 
   private GetPaginatedResults(url,params: HttpParams) {
-    const paginatedResult: PaginatedResult<Member[]> = new PaginatedResult<Member[]>();
+    const paginatedResult: PaginatedResult<Partial<Member[]>> = new PaginatedResult<Partial<Member[]>>();
 
-    return this.http.get<Member[]>(url, { observe: "response", params })
+    return this.http.get<Partial<Member[]>>(url, { observe: "response", params })
       .pipe(map(response => {
         response.body.forEach(member => 
             member.interestsArray = member.interests?.split(','));
