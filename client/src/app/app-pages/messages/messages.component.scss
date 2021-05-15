@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  justify-content: flex-start;
+  margin-bottom: 2em;
+
+  .form-group {
+    margin: 0 .5em;
+    input, select {
+      outline: none;
+      margin-left: .5em;
+    }
+  }
+  .messages {
+    margin: .5em;
+    margin-top: 2em;
+
+    .messages-container {
+      display: flex;
+      flex-direction: column;
+
+      .message {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #fbfbfb;
+        img {
+          height: 6vw;
+          width: auto;
+          border-radius: 50%;
+        }
+        .text {
+          p{
+            margin: 0;
+            &.date-sent {
+              font-size: 1vw;
+              opacity: .8;
+            }
+          }
+        }
+        .delete-btn {
+          color: white;
+          font-weight: 500;
+          height: 4vw;
+          background-color: #327599;
+          border: 2px solid #327599;
+          border-radius: 10px;
+          padding: .5em 2em;
+          &:hover {
+            background-color: #276180;
+            border: 2px solid #276180;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+  }
+}

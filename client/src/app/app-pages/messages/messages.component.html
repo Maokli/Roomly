@@ -1,1 +1,52 @@
-<p>messages works!</p>
+<div class="container">
+  <div class="form-group">
+    <select [(ngModel)]="container" name="container" (change)="loadMessages()">
+      <option selected value="Unread">Unread</option>
+      <option value="Inbox">Inbox</option>
+      <option value="Outbox">Outbox</option>
+    </select>
+  </div>
+
+  <div class="messages" *ngIf="messages">
+    <div class="no-message" *ngIf="messages.length === 0">
+      <h3>There's nothing to show, Feel free to start a conversation with our users</h3>
+    </div>
+    <div class="messages-container">
+      <div class="message" *ngFor="let message of messages">
+        <ng-container *ngIf="container === 'Outbox'">
+          <img src="{{message.recepientPhotoUrl || 'assets/user.png'}}" alt="{{message.recepientUsername}}">
+          <div class="text">
+            <h5>{{message.recepientUsername}}</h5>
+            <p class="message-content">{{message.content}}</p>
+            <p class="date-sent">sent {{message.messageSent | timeago}}</p>
+          </div>
+          <button class="delete-btn">Delete</button>
+        </ng-container>
+        <ng-container *ngIf="container !== 'Outbox'">
+          <img src="{{message.senderPhotoUrl || 'assets/user.png'}}" alt="{{message.senderUsername}}">
+          <div class="text">
+            <h5>{{message.senderUsername}}</h5>
+            <p class="message-content">{{message.content}}</p>
+            <p class="date-sent">sent {{message.messageSent | timeago}}</p>
+          </div>
+          <button class="delete-btn">Delete</button>
+        </ng-container>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <div class="pagination-container">
+    <pagination *ngIf="pagination"
+              [boundaryLinks]="true"
+              [totalItems]="pagination.totalItems"
+              [itemsPerPage]="pagination.itemsPerPage"
+              [(ngModel)]="pagination.currentPage"
+              (pageChanged)="pageChanged($event)"
+              previousText="&lsaquo;"
+              nextText="&rsaquo;"
+              firstText="&laquo;"
+              lastText="&raquo;">
+  
+    </pagination>
+  </div>
+</div>
