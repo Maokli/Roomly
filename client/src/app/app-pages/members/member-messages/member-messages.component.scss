@@ -1,0 +1,39 @@
+.thread-body{
+  p{
+    margin: 1vw 9vw;
+    font-size: 3vw;
+  }
+}
+
+.message-box{
+  form{
+    display: flex;
+    flex-direction: row;
+    margin: 1vw 9vw;
+    input{
+      width: 70%;
+      padding: 0 1vw;
+      font-size:1.3vw;
+      color:#000;
+      transition: border .5s;
+      &:focus{ 
+        border:none;	
+        outline:none;
+        border :1.5px solid #327599;  
+      }
+    }
+  }
+  button{
+    width: 30%;
+    padding: .5em 0;
+    outline: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1.5vw;
+    border: none;
+    background-color: #4EB094;
+    &:hover{
+      background-color: #419d83;
+    }
+  }
+}

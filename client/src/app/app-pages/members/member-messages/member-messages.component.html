@@ -1,0 +1,14 @@
+<div class="thread-body">
+  <p *ngIf="messages?.length == 0">
+    No messages yet ... say hi by using the message box below
+  </p>
+  <div class="messages" *ngIf="messages?.length >0">
+    <app-message-card *ngFor="let message of messages" [message]="message"></app-message-card>
+  </div>
+</div>
+<div class="message-box">
+  <form>
+    <input type="text" placeholder="Aa">
+    <button type="submit">Send</button>
+  </form>
+</div>

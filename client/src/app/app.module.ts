@@ -32,6 +32,8 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './app-pages/members/photo-editor/photo-editor.component';
 import { TextInputComponent } from './forms/text-input/text-input.component';
 import {DateInputComponent} from './forms/date-input/date-input.component';
+import { MemberMessagesComponent } from './app-pages/members/member-messages/member-messages.component';
+import { MessageCardComponent } from './app-pages/members/member-messages/message-card/message-card.component';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import {DateInputComponent} from './forms/date-input/date-input.component';
     PhotoEditorComponent,
     TextInputComponent,
     DateInputComponent,
+    MemberMessagesComponent,
+    MessageCardComponent,
   ],
   imports: [
     BrowserModule,

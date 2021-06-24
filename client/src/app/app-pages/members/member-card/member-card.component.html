@@ -5,7 +5,7 @@
     <ul class="buttons">
       <li><a routerLink="/user/{{member.userName}}"><i class="fas fa-info"></i></a></li>
       <li><a (click)="addLike(member)"><i class="fas fa-heart"></i></a></li>
-      <li><a routerLink=""><i class="fas fa-envelope"></i></a></li>
+      <li><a routerLink="/user/message/{{member.userName}}"><i class="fas fa-envelope"></i></a></li>
     </ul>
     <p>${{member.budget}}<span> /mo</span></p>
   </div>

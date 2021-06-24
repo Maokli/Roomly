@@ -1,0 +1,21 @@
+<div class="message-card">
+  <div class="content-container">
+    <p class="message-content">{{message.content}}</p>
+    <p class="date-sent">sent {{message.messageSent | date:'yyyy-MMM-dd'}}</p>
+    <div class="chat-img">
+      <img 
+      src="{{message.senderPhotoUrl || './assets/user.png'}}" 
+      alt="{{message.senderUsername}}" srcset="">
+    </div>
+  </div>
+  <p class="unread" 
+  *ngIf="!message.dateRead && 
+      message.senderUsername !== (accountService.currentUser$ | async).userName">
+  (Unread)
+  </p>
+  <div class="read" 
+  *ngIf="message.dateRead && 
+      message.senderUsername !== (accountService.currentUser$ | async).userName">
+  (Read {{message.dateRead | timeago}})
+  </div>
+</div>

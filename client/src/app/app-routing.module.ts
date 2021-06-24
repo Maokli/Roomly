@@ -4,6 +4,7 @@ import { MatchesComponent } from './app-pages/matches/matches.component';
 import { MemberDetailComponent } from './app-pages/members/member-detail/member-detail.component';
 import { MemberEditComponent } from './app-pages/members/member-edit/member-edit.component';
 import { MemberListComponent } from './app-pages/members/member-list/member-list.component';
+import { MemberMessagesComponent } from './app-pages/members/member-messages/member-messages.component';
 import { MessagesComponent } from './app-pages/messages/messages.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
       {path:'find-roommates', component: MemberListComponent},
       {path:'user/edit', component: MemberEditComponent, canDeactivate: [PreventUnsavedChangesGuard]},
       {path:'user/:username', component: MemberDetailComponent},
+      {path:'user/message/:username', component: MemberMessagesComponent},
       {path:'matches', component: MatchesComponent},
       {path:'messages', component: MessagesComponent},
     ]
