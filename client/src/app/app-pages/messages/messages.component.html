@@ -31,7 +31,7 @@
               <p class="date-sent">sent {{message.messageSent | timeago}}</p>
             </div>
           </a>
-          <button class="delete-btn">Delete</button>
+          <button class="delete-btn" (click)="deleteMessage(message.id)">Delete</button>
         </ng-container>
         <hr>
       </div>
