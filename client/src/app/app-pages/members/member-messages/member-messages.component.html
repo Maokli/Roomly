@@ -7,8 +7,8 @@
   </div>
 </div>
 <div class="message-box">
-  <form>
-    <input type="text" placeholder="Aa">
-    <button type="submit">Send</button>
+  <form #messageForm ="ngForm" (ngSubmit)="sendMessage()" autocomplete="off">
+    <input [(ngModel)]="messageContent" required name="messageContent" type="text" placeholder="Aa">
+    <button [disabled]="!messageForm.valid" type="submit">Send</button>
   </form>
 </div>

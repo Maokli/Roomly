@@ -15,7 +15,7 @@
   </p>
   <div class="read" 
   *ngIf="message.dateRead && 
-      message.senderUsername !== (accountService.currentUser$ | async).userName">
+      message.senderUsername == (accountService.currentUser$ | async).userName">
   (Read {{message.dateRead | timeago}})
   </div>
 </div>

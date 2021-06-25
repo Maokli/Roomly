@@ -21,22 +21,70 @@
       flex-direction: column;
 
       .message {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        align-items: center;
-        background-color: #fbfbfb;
-        img {
-          height: 6vw;
-          width: auto;
-          border-radius: 50%;
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #fbfbfb;
+            padding: .5vw;
+            img {
+              height: 6vw;
+              width: auto;
+              border-radius: 50%;
+              margin: 0 2vw;
+            }
+            .text {
+              flex-grow: 1;
+              p{
+                margin: 0;
+                &.date-sent {
+                  font-size: 1vw;
+                  opacity: .8;
+                }
+              }
+            }
+          .delete-btn {
+            color: white;
+            font-weight: 500;
+            height: 4vw;
+            background-color: #327599;
+            border: 2px solid #327599;
+            border-radius: 10px;
+            padding: .5em 2em;
+            &:hover {
+              background-color: #276180;
+              border: 2px solid #276180;
+              color: white;
+            }
+            &:focus{
+              background-color: #276180;
+              border: 2px solid #276180;
+              color: white;
+              outline: none;
+            }
+          }
         }
-        .text {
-          p{
-            margin: 0;
-            &.date-sent {
-              font-size: 1vw;
-              opacity: .8;
+        a {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #fbfbfb;
+          color: black;
+          img {
+            height: 6vw;
+            width: auto;
+            border-radius: 50%;
+            margin: 0 2vw;
+          }
+          .text {
+            flex-grow: 1;
+            p{
+              margin: 0;
+              &.date-sent {
+                font-size: 1vw;
+                opacity: .8;
+              }
             }
           }
         }
@@ -53,6 +101,12 @@
             border: 2px solid #276180;
             color: white;
           }
+          &:focus{
+            background-color: #276180;
+            border: 2px solid #276180;
+            color: white;
+            outline: none;
+          }
         }
       }
     }
@@ -61,4 +115,3 @@
     display: flex;
     justify-content: center;
   }
-}

@@ -23,12 +23,14 @@
           <button class="delete-btn">Delete</button>
         </ng-container>
         <ng-container *ngIf="container !== 'Outbox'">
-          <img src="{{message.senderPhotoUrl || 'assets/user.png'}}" alt="{{message.senderUsername}}">
-          <div class="text">
-            <h5>{{message.senderUsername}}</h5>
-            <p class="message-content">{{message.content}}</p>
-            <p class="date-sent">sent {{message.messageSent | timeago}}</p>
-          </div>
+          <a routerLink="/user/message/{{message.senderUsername}}">
+            <img src="{{message.senderPhotoUrl || 'assets/user.png'}}" alt="{{message.senderUsername}}">
+            <div class="text">
+              <h5>{{message.senderUsername}}</h5>
+              <p class="message-content">{{message.content}}</p>
+              <p class="date-sent">sent {{message.messageSent | timeago}}</p>
+            </div>
+          </a>
           <button class="delete-btn">Delete</button>
         </ng-container>
         <hr>
