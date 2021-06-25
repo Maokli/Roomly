@@ -11,7 +11,7 @@
     <div class="no-message" *ngIf="messages.length === 0">
       <h3>There's nothing to show, Feel free to start a conversation with our users</h3>
     </div>
-    <div class="messages-container">
+    <div [hidden]="loading" class="messages-container">
       <div class="message" *ngFor="let message of messages">
         <ng-container *ngIf="container === 'Outbox'">
           <img src="{{message.recepientPhotoUrl || 'assets/user.png'}}" alt="{{message.recepientUsername}}">
@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="pagination-container">
-    <pagination *ngIf="pagination"
+    <pagination *ngIf="pagination && !loading && messages.length !== 0"
               [boundaryLinks]="true"
               [totalItems]="pagination.totalItems"
               [itemsPerPage]="pagination.itemsPerPage"
